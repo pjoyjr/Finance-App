@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable, of} from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Transaction } from  '../Transaction';
-import { TRANSACTIONS } from '../mock-transactions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
+  private apiURL = 'http://localhost:5000/transactions';
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   getTransactions(): Observable<Transaction[]> {
-    const tasks = of(TRANSACTIONS);
-    return tasks;
+    return this.http.get<Transaction[]>(this.apiURL); 
+  }
+
+  deleteTransaction(transaction: Transaction): Observable<Transaction> {
+    const url = `${this.apiURL}/${transaction.id}`;
+    return this.http.delete<Transaction>(url);
   }
 }

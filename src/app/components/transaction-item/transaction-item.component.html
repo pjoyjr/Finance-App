@@ -2,5 +2,7 @@
     <h3>{{ transaction.text }}
         <fa-icon [icon]="faEllipsisH"></fa-icon>
     </h3>
-    <p>{{ transaction.amount }}</p>
+    <h3>{{ transaction.amount }}
+        <fa-icon (click)="onDelete(transaction)" [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+    </h3>
 </div>
