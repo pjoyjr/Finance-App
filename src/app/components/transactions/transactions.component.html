@@ -1,2 +1,3 @@
+<app-add-transaction (onAddTransaction)="addTransaction($event)"></app-add-transaction>
 <app-transaction-item *ngFor="let transaction of transactions" [transaction]="transaction" (onDeleteTransaction)="deleteTransaction(transaction)">
 </app-transaction-item>

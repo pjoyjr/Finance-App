@@ -1,0 +1,15 @@
+<form class="add-form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <label for="text">Transaction:</label>
+        <input type="text" name="text" id="text" [(ngModel)]="text" placeholder="e.g. Gas Purchase">
+    </div>
+    <div class="form-control">
+        <label for="day">Day: </label>
+        <input type="date" name="day" id="day" [(ngModel)]="day" placeholder="Add Day">
+    </div>
+    <div class="form-control">
+        <label for="amount">Amount: </label>
+        <input type="number" name="amount" id="amount" [(ngModel)]="amount" placeholder="0">
+    </div>
+    <input type="submit" value="Save" class="btn btn-block">
+</form>
