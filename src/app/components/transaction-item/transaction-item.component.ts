@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Transaction } from '../../Transaction';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-transaction-item',
@@ -8,6 +9,7 @@ import { Transaction } from '../../Transaction';
 })
 export class TransactionItemComponent implements OnInit {
   @Input() transaction: any | Transaction;
+  faEllipsisH = faEllipsisH;
 
   constructor() { }
 

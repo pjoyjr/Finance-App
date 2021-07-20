@@ -15,7 +15,7 @@ export const TRANSACTIONS: Transaction[] = [
     },
     {
         id: 3,
-        text: 'Job Payment',
+        text: 'Job Income',
         day: 'July 19, 2021',
         amount: 200.15,
     }
