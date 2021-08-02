@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Transaction } from '../../Transaction';
+import { UiService } from '../../services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-transaction',
@@ -8,31 +10,35 @@ import { Transaction } from '../../Transaction';
 })
 export class AddTransactionComponent implements OnInit {
   @Output() onAddTransaction: EventEmitter<Transaction> = new EventEmitter();
-  text: undefined | string;
-  day: undefined | string;
-  amount: undefined | number;
-  
+  isIncome: any | boolean;
+  description: any | string;
+  day: any | string;
+  amount: any | number;
+  showAddTransaction: any | boolean;
+  subscription: any | Subscription;
 
-  constructor() { }
+  constructor(private uiService:UiService) {
+    this.subscription = this.uiService.onToggle().subscribe((value) => (this.showAddTransaction = value)); }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    if(!this.text || !this.day || !this.amount){
+    if(!this.description || !this.day || !this.amount){
       alert('Please fill out form!');
       return;
     }
 
     const newTransaction = {
-      text: this.text,
+      isIncome: this.isIncome,
+      description: this.description,
       day: this.day,
       amount: this.amount
     };
 
     this.onAddTransaction.emit(newTransaction);
-
-    this.text = '';
+    this.isIncome = true;
+    this.description = '';
     this.day = '';
     this.amount = 0;
 

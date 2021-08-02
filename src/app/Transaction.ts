@@ -1,6 +1,7 @@
 export interface Transaction {
     id?: number;
-    text: string;
+    isIncome: boolean;
+    description: string;
     day: string;
     amount: number;
 }

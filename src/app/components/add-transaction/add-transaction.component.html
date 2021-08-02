@@ -1,13 +1,26 @@
-<form class="add-form" (ngSubmit)="onSubmit()">
-    <div class="form-control">
-        <label for="text">Transaction:</label>
-        <input type="text" name="text" id="text" [(ngModel)]="text" placeholder="e.g. Gas Purchase">
+<form *ngIf="showAddTransaction" class="add-form" (ngSubmit)="onSubmit()">
+
+    <div class="form-control-radio">
+        <div class="row">
+            <div class="column">
+                <label for="income">Income: </label>
+                <input type="radio" name="isIncome" id="isIncome" [(ngModel)]="isIncome" value="true">
+            </div>
+            <div class="column">
+                <label for="expense">Expense: </label>
+                <input type="radio" name="isIncome" id="isIncome" [(ngModel)]="isIncome" value="false">
+            </div>
+        </div>
     </div>
-    <div class="form-control">
+    <div class="form-control-text">
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="description" [(ngModel)]="description" placeholder="e.g. Gas Purchase">
+    </div>
+    <div class="form-control-text">
         <label for="day">Day: </label>
         <input type="date" name="day" id="day" [(ngModel)]="day" placeholder="Add Day">
     </div>
-    <div class="form-control">
+    <div class="form-control-text">
         <label for="amount">Amount: </label>
         <input type="number" name="amount" id="amount" [(ngModel)]="amount" placeholder="0">
     </div>

@@ -1,4 +1,4 @@
 <header>
     <h1>{{ title }}</h1>
-    <app-button color="green" text="Add" (btnClick)="toggleAddTransaction()"></app-button>
+    <app-button *ngIf="hasRoute('/')" color="{{ showAddTransaction ? 'red' : 'green' }}" text="{{ showAddTransaction ? 'Close' : 'Add' }}" (btnClick)="toggleAddTransaction()"></app-button>
 </header>
